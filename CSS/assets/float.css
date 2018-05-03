@@ -3,6 +3,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: #FEFFF1;
   width: 80%;
+  margin: 0 auto;
 }
 
 h1 {
@@ -20,6 +21,8 @@ ul li a, figcaption a {
   text-decoration: none;
   color: inherit;
 }
+
+
 
 /* This selector selects only IMMEDIATE (1 level deep) image element children
 of the header element */
@@ -95,7 +98,6 @@ nav ul li a {
 
 body {
     margin: 0 auto; /* Common Centering Technique */
-    width: 900px;
 }
 
 section {
