@@ -6,39 +6,39 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
-User.create(username: 'Clifford')
-User.create(username: 'Cynthia')
+clifford = User.create(username: 'Clifford')
+cynthia = User.create(username: 'Cynthia')
 
 Poll.destroy_all 
-Poll.create(title: 'Facts about Clifford', author_id: 3)
-Poll.create(title: 'Facts about aA', author_id: 4)
+poll_clifford = Poll.create(title: 'Facts about Clifford', author_id: clifford.id)
+poll_cynthia = Poll.create(title: 'Facts about aA', author_id: cynthia.id)
 
 Question.destroy_all
-Question.create(inquiry: "What color is Clifford?", poll_id:1)
-Question.create(inquiry: "Is Clifford big or small?", poll_id:1)
+q1 = Question.create(inquiry: "What color is Clifford?", poll_id:poll_clifford.id)
+q2 = Question.create(inquiry: "Is Clifford big or small?", poll_id:poll_clifford.id)
 
-Question.create(inquiry: "What language do they teach at aA?", poll_id:2)
-Question.create(inquiry: "Does Cynthia work at aA?", poll_id:2)
+q3 = Question.create(inquiry: "What language do they teach at aA?", poll_id:poll_cynthia.id)
+q4 = Question.create(inquiry: "Does Cynthia work at aA?", poll_id:poll_cynthia.id)
 
 AnswerChoice.destroy_all
-AnswerChoice.create(response: "Red" , question_id:1 )
-AnswerChoice.create(response: "Blue", question_id:1 )
+ac1 = AnswerChoice.create(response: "Red" , question_id: q1.id )
+ac2 = AnswerChoice.create(response: "Blue", question_id: q1.id )
 
-AnswerChoice.create(response: "Big", question_id:2 )
-AnswerChoice.create(response: "Small", question_id:2 )
+ac3 = AnswerChoice.create(response: "Big", question_id:q2.id)
+ac4 = AnswerChoice.create(response: "Small", question_id:q2.id)
 
-AnswerChoice.create(response: "Ruby", question_id:3 )
-AnswerChoice.create(response: "Python", question_id:3 )
+ac5 = AnswerChoice.create(response: "Ruby", question_id: q3.id)
+ac6 = AnswerChoice.create(response: "Python", question_id: q3.id)
 
-AnswerChoice.create(response: "Yes", question_id:4 )
-AnswerChoice.create(response: "No", question_id:4 )
+ac7 = AnswerChoice.create(response: "Yes", question_id:q4.id )
+ac8 = AnswerChoice.create(response: "No", question_id:q4.id )
 
 Response.destroy_all
 #clifford answer cynthia poll
-Response.create(response_id:1 , user_id:1 )
-Response.create(response_id:3 , user_id:1 )
+Response.create(response_id: ac1.id , user_id: clifford.id )
+Response.create(response_id: ac3.id , user_id: clifford.id )
 
 #cynthia answer clifford poll
-Response.create(response_id:6 , user_id:2 )
-Response.create(response_id:8 , user_id:2 )
+Response.create(response_id: ac6.id , user_id: cynthia.id )
+Response.create(response_id: ac8.id , user_id: cynthia.id )
 
